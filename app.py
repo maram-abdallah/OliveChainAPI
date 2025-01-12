@@ -2,17 +2,23 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://olive_user:yourpassword@localhost/olive_chain_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-@app.route('/')
-def home():
-    return "Welcome to the Olive Chain API!"
+# Import routes after initializing the app and db
+import routes
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    print("Starting Flask app...")
+    app.run(debug=True, port=8000)
+
+print("Listing all registered routes:")
+for rule in app.url_map.iter_rules():
+    print(f"Endpoint: {rule.endpoint}, Route: {rule}")
+
+
 
 
 

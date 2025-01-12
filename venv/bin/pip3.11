@@ -1,4 +1,4 @@
-#!/Users/mac/Desktop/OliveChainAPI/venv/bin/python
+#!/Users/mac/Desktop/OliveChainAPI/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
