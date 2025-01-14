@@ -7,17 +7,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# Import routes after initializing the app and db
+# Import routes AFTER initializing `app` and `db`
 import routes
 
 if __name__ == '__main__':
     print("Starting Flask app...")
+    print("Listing all registered routes:")
+    for rule in app.url_map.iter_rules():
+        print(f"Endpoint: {rule.endpoint}, Route: {rule}")
     app.run(debug=True, port=8000)
-
-print("Listing all registered routes:")
-for rule in app.url_map.iter_rules():
-    print(f"Endpoint: {rule.endpoint}, Route: {rule}")
-
 
 
 

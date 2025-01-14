@@ -1,4 +1,4 @@
-from app import db  # Import the SQLAlchemy instance
+from app import db  # Import db from app.py
 
 # Harvest Model
 class Harvest(db.Model):
